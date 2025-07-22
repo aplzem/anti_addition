@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "知乎使用时长监控",
+  "version": "1.0",
+  "description": "监控知乎网站使用时长，超时提醒",
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://zhihu.com/*",
+    "https://*.zhihu.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://zhihu.com/*", "https://*.zhihu.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "知乎使用时长监控"
+  }
+} 
